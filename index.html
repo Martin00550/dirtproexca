@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Dirt Pro Excavating — professional demolition, excavation, grading, land clearing, septic systems, concrete finishing, and more in Fair Play, SC & the Lake Hartwell area. Call 706-680-5336."/>
+  <meta name="keywords" content="excavating, excavation company, demolition, grading, land clearing, forestry mulching, tree removal, septic systems, waterlines, concrete finishing, retaining walls, driveway repair, pond repair, Fair Play, SC, Lake Hartwell, Westminster, Anderson, Seneca, Clemson"/>
+  <meta name="author" content="Dirt Pro Excavating"/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="index.html"/>
+  <meta property="og:title" content="Dirt Pro Excavating | Demolition & Excavation Company"/>
+  <meta property="og:description" content="Professional demolition, excavation, grading, land clearing, septic systems, and concrete finishing. Big or small, we do them all!"/>
+  <meta property="og:image" content="images/hero.webp"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Dirt Pro Excavating | Demolition & Excavation Company"/>
+  <meta name="twitter:description" content="Professional demolition, excavation, grading, land clearing, septic systems, and concrete finishing. Call 706-680-5336."/>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#128680;</text></svg>"/>
+  <link rel="preload" as="image" href="images/hero.webp"/>
+  <title>Dirt Pro Excavating | Demolition & Excavation Company</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Dirt Pro Excavating",
+    "description": "Professional demolition and excavation company. Grading, land clearing, forestry mulching, tree removal, septic system installation & repair, waterlines, concrete finishing, masonry, retaining walls, driveway repair, pond repair, and erosion control.",
+    "telephone": "+1 706-680-5336",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Fair Play",
+      "addressRegion": "SC",
+      "addressCountry": "US"
+    },
+    "areaServed": [
+      "Fair Play, SC", "Lake Hartwell area", "Westminster, SC", "Anderson, SC", "Seneca, SC", "Clemson, SC", "Northeast Georgia"
+    ]
+  }
+  </script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'brand-beige': '#e8e4df',
+            'brand-dark': '#26221e',
+            'brand-accent': '#FFBA17',
+            'brand-dirt': '#8a5a2b',
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'serif'],
+            sans: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .fade-in-left {
+      opacity: 0;
+      transform: translateX(-30px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    .fade-in-left.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .fade-in-right {
+      opacity: 0;
+      transform: translateX(30px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    .fade-in-right.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .scale-in {
+      opacity: 0;
+      transform: scale(0.9);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .scale-in.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .hover-lift:hover {
+      transform: translateY(-5px);
+    }
+
+    .stagger-1 { transition-delay: 0.1s; }
+    .stagger-2 { transition-delay: 0.2s; }
+    .stagger-3 { transition-delay: 0.3s; }
+    .stagger-4 { transition-delay: 0.4s; }
+
+    #gallery img {
+      filter: contrast(1.03) brightness(1.01);
+      transform: translateZ(0);
+      backface-visibility: hidden;
+      cursor: zoom-in;
+    }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.95);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    .lightbox.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    .lightbox img {
+      max-width: 90vw;
+      max-height: 90vh;
+      object-fit: contain;
+      border-radius: 4px;
+      box-shadow: 0 0 40px rgba(0,0,0,0.5);
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      color: white;
+      font-size: 40px;
+      cursor: pointer;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      transition: background 0.2s;
+    }
+    .lightbox-close:hover {
+      background: rgba(255,255,255,0.2);
+    }
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      color: white;
+      font-size: 48px;
+      cursor: pointer;
+      padding: 20px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 8px;
+      transition: background 0.2s;
+      user-select: none;
+    }
+    .lightbox-nav:hover {
+      background: rgba(255,255,255,0.2);
+    }
+    .lightbox-prev { left: 20px; }
+    .lightbox-next { right: 20px; }
+
+    .scrollbar-hide::-webkit-scrollbar {
+      display: none;
+    }
+    .scrollbar-hide {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    .gallery-container {
+      cursor: grab;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+    .gallery-container:active {
+      cursor: grabbing;
+    }
+    .gallery-container.grabbing {
+      scroll-behavior: auto !important;
+    }
+
+    #gallery-container > div:last-child:nth-child(odd) {
+      grid-column: 1 / -1;
+      justify-self: center;
+    }
+
+    .mobile-menu {
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+    }
+    .mobile-menu.open {
+      transform: translateX(0);
+    }
+    .menu-btn { cursor: pointer; }
+
+    .metal-section {
+      background-color: #26221e;
+      background-image:
+        radial-gradient(circle at 15% 20%, rgba(255,186,35,0.12), transparent 45%),
+        radial-gradient(circle at 85% 80%, rgba(255,186,35,0.08), transparent 50%),
+        radial-gradient(circle at 60% 0%, rgba(255,255,255,0.05), transparent 40%),
+        linear-gradient(180deg, #2f2a24 0%, #1f1c18 100%);
+    }
+
+    .hazard-strip {
+      background: repeating-linear-gradient(
+        -45deg,
+        #FFBA17 0 10px,
+        transparent 10px 20px
+      );
+    }
+
+    .plate {
+      position: relative;
+    }
+    .plate::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      pointer-events: none;
+      box-shadow:
+        inset 4px 4px 0 -2px rgba(255,186,35,0.4),
+        inset -4px 4px 0 -2px rgba(255,186,35,0.4),
+        inset 4px -4px 0 -2px rgba(255,186,35,0.4),
+        inset -4px -4px 0 -2px rgba(255,186,35,0.4);
+    }
+  </style>
+</head>
+<body class="bg-brand-beige text-brand-dark font-sans selection:bg-brand-accent selection:text-white pt-16 md:pt-20">
+  <a href="#about" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[60] focus:px-4 focus:py-2 focus:bg-brand-dark focus:text-white focus:rounded">Skip to content</a>
+
+  <header class="fixed top-0 w-full z-50 bg-brand-beige/90 backdrop-blur-md border-b border-black/5">
+    <nav aria-label="Main navigation" class="container mx-auto px-6 py-4">
+      <div class="max-w-6xl mx-auto flex items-center justify-between">
+        <a class="flex items-center gap-2" href="#"><img alt="Dirt Pro Excavating" class="h-[52px] md:h-[62px] w-auto" src="images/logo.webp"/></a>
+        <div class="hidden md:flex items-center gap-6 text-sm font-medium">
+          <a class="hover:text-brand-accent transition-colors" href="#about">About</a>
+          <a class="hover:text-brand-accent transition-colors" href="#services">Services</a>
+          <a class="hover:text-brand-accent transition-colors" href="#gallery">Gallery</a>
+           <a class="px-5 py-2 bg-brand-dark text-white text-sm font-bold uppercase tracking-wider hover:bg-brand-accent transition-all" href="tel:+17066805336">Call Us</a>
+        </div>
+        <div class="flex md:hidden items-center gap-3">
+          <a class="px-4 py-2 bg-brand-dark text-white text-xs font-bold uppercase tracking-wider hover:bg-brand-accent transition-all" href="tel:+17066805336">Call Us</a>
+          <button class="menu-btn w-10 h-10 flex items-center justify-center" onclick="toggleMenu()" aria-label="Toggle menu">
+            <svg class="w-6 h-6 text-brand-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </button>
+        </div>
+      </div>
+    </nav>
+    <div class="mobile-menu fixed top-0 right-0 w-64 h-full bg-brand-dark z-50 p-8 md:hidden">
+      <div class="flex justify-end mb-8">
+        <button class="text-white text-3xl" onclick="toggleMenu()">&times;</button>
+      </div>
+      <div class="flex flex-col gap-6 text-lg">
+        <a class="text-white hover:text-brand-accent transition-colors" href="#about" onclick="toggleMenu()">About</a>
+        <a class="text-white hover:text-brand-accent transition-colors" href="#services" onclick="toggleMenu()">Services</a>
+        <a class="text-white hover:text-brand-accent transition-colors" href="#gallery" onclick="toggleMenu()">Gallery</a>
+        <a class="mt-4 px-5 py-3 bg-brand-accent text-white text-sm font-bold uppercase tracking-wider text-center" href="tel:+17066805336" onclick="toggleMenu()">Call Us</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="relative h-[60vh] md:h-[90vh] min-h-[380px] md:min-h-[600px] flex items-center justify-center text-center px-4 md:px-6 overflow-hidden" id="hero">
+    <div class="absolute inset-0 z-0">
+      <img alt="Dirt Pro Excavating at work" class="w-full h-full object-cover object-center md:object-[70%_50%] scale-100 md:scale-140 brightness-60" src="images/hero.webp" fetchpriority="high"/>
+    </div>
+    <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70"></div>
+<div class="relative z-10 max-w-3xl fade-in">
+      <p class="text-brand-accent text-sm md:text-base font-bold uppercase tracking-widest mb-4 drop-shadow-md">Fair Play, SC · Lake Hartwell Area</p>
+      <h1 class="text-3xl sm:text-4xl md:text-6xl font-serif text-white mb-4 leading-tight drop-shadow-lg">Dirt Pro Excavating</h1>
+      <p class="text-white text-base md:text-lg mb-6 drop-shadow-md">Demolition • Excavation • Site Development</p>
+      <p class="text-white/90 text-base md:text-lg max-w-xl mx-auto mb-8 drop-shadow-md">From land clearing and septic systems to concrete finishing and pond repair — we turn your property vision into real-life results. Big or small, we do them all.</p>
+      <a class="inline-block px-8 py-3 bg-white text-black text-sm font-bold uppercase tracking-wider hover:bg-brand-accent hover:text-white transition-all duration-300 drop-shadow-md" href="tel:+17066805336">Call for Free Estimate</a>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="py-16 md:py-20">
+    <div class="container mx-auto px-6">
+      <div class="max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div class="fade-in-left">
+            <div class="relative w-full aspect-[4/3] overflow-hidden rounded-lg shadow-lg select-none group" id="before-after-slider">
+              <img src="images/after.webp" alt="After Project" class="absolute inset-0 w-full h-full object-cover pointer-events-none" />
+              <span class="absolute top-4 right-4 bg-brand-accent/90 text-white text-xs font-bold uppercase px-3 py-1 rounded backdrop-blur-sm tracking-wider pointer-events-none transition-opacity duration-200" id="after-badge">After</span>
+
+              <img src="images/before.webp" alt="Before Project" class="absolute inset-0 w-full h-full object-cover pointer-events-none" id="before-image" style="clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);" />
+              <span class="absolute top-4 left-4 bg-brand-dark/80 text-white text-xs font-bold uppercase px-3 py-1 rounded backdrop-blur-sm tracking-wider pointer-events-none transition-opacity duration-200" id="before-badge">Before</span>
+
+              <div class="absolute inset-y-0 pointer-events-none z-10" id="slider-line" style="left: 50%;">
+                <div class="absolute inset-y-0 w-0.5 bg-white/80 shadow-md"></div>
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-white border-2 border-brand-accent rounded-full flex items-center justify-center shadow-lg cursor-ew-resize text-brand-dark group-hover:scale-110 transition-transform duration-300">
+                  <svg class="w-5 h-5 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M8 9l-4 3 4 3m8-6l4 3-4 3"/></svg>
+                </div>
+              </div>
+
+              <input type="range" min="0" max="100" value="50" class="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-20" id="slider-input" aria-label="Before and after slider" />
+            </div>
+          </div>
+          <div class="space-y-6 fade-in-right">
+            <h3 class="text-xs uppercase tracking-widest text-brand-accent font-bold">About Us</h3>
+            <h2 class="text-3xl md:text-4xl font-serif">Dirt Pro Excavating</h2>
+            <p class="text-gray-600 leading-relaxed">Based in Fair Play, SC near Lake Hartwell, Dirt Pro Excavating is your go-to crew for demolition and excavation work of every size. From grading and land clearing to septic systems and concrete finishing, we're committed to quality work and dependable service — step by step, start to finish.</p>
+            <p class="text-gray-600 leading-relaxed">No matter the size of your project, we'd love the opportunity to turn your vision into real-life results. Big or small, we do them all!</p>
+            <div class="flex flex-col gap-3 pt-2">
+              <div class="flex items-center gap-2">
+                <div class="w-2 h-2 bg-brand-accent rounded-full"></div>
+                <span class="text-sm">Fair Play, SC · Lake Hartwell Area</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <div class="w-2 h-2 bg-brand-accent rounded-full"></div>
+                <span class="text-sm">+1 706-680-5336</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <div class="w-2 h-2 bg-brand-accent rounded-full"></div>
+                <span class="text-sm">Call or text anytime</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <div class="w-2 h-2 bg-brand-accent rounded-full"></div>
+                <span class="text-sm">Serving upstate SC &amp; Northeast Georgia</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="relative py-16 md:py-20 metal-section overflow-hidden">
+    <div class="absolute top-0 left-0 right-0 h-1.5 hazard-strip opacity-50"></div>
+    <div class="absolute bottom-0 left-0 right-0 h-1.5 hazard-strip opacity-50"></div>
+    <div class="container mx-auto px-6 relative">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12 fade-in">
+          <h3 class="text-xs uppercase tracking-widest text-brand-accent font-bold">Services</h3>
+          <h2 class="text-3xl md:text-4xl font-serif mt-2 text-white">What We Do</h2>
+          <p class="text-neutral-400 mt-3 max-w-xl mx-auto text-sm md:text-base">From land clearing to concrete finishing — dependable excavation services done right.</p>
+        </div>
+        <div class="services-container grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 items-stretch" id="services-container">
+          <div class="plate fade-in hover-lift transition-transform duration-300 stagger-1 bg-gradient-to-b from-neutral-800 to-neutral-950 border border-white/10 rounded-lg p-5 md:p-6 flex flex-col items-center text-center overflow-hidden">
+            <span class="absolute top-0 inset-x-0 h-0.5 bg-gradient-to-r from-transparent via-brand-accent to-transparent opacity-70"></span>
+            <div class="w-14 h-14 mb-3 bg-brand-dark border border-brand-accent/40 rounded-lg flex items-center justify-center shrink-0">
+              <svg class="w-7 h-7 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 8h16M4 8v10a2 2 0 002 2h12a2 2 0 002-2V8M4 8l1-3h14l1 3M9 12h6"/></svg>
+            </div>
+            <h3 class="text-sm md:text-base font-serif mb-1 leading-snug text-white">Grading</h3>
+            <p class="text-xs text-neutral-400">Smoothing, leveling, and site preparation for any project</p>
+          </div>
+          <div class="plate fade-in hover-lift transition-transform duration-300 stagger-2 bg-gradient-to-b from-neutral-800 to-neutral-950 border border-white/10 rounded-lg p-5 md:p-6 flex flex-col items-center text-center overflow-hidden">
+            <span class="absolute top-0 inset-x-0 h-0.5 bg-gradient-to-r from-transparent via-brand-accent to-transparent opacity-70"></span>
+            <div class="w-14 h-14 mb-3 bg-brand-dark border border-brand-accent/40 rounded-lg flex items-center justify-center shrink-0">
+              <svg class="w-7 h-7 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 21h10m-8 0v-4a2 2 0 012-2h2a2 2 0 012 2v4M5 8h14M7 8V5a2 2 0 012-2h6a2 2 0 012 2v3M5 8l-1.5 8.5A2 2 0 005.5 18h13a2 2 0 002-1.5L19 8"/></svg>
+            </div>
+            <h3 class="text-sm md:text-base font-serif mb-1 leading-snug text-white">Demolition</h3>
+            <p class="text-xs text-neutral-400">Out with the old — safe and clean tear-outs of any size</p>
+          </div>
+          <div class="plate fade-in hover-lift transition-transform duration-300 stagger-3 bg-gradient-to-b from-neutral-800 to-neutral-950 border border-white/10 rounded-lg p-5 md:p-6 flex flex-col items-center text-center overflow-hidden">
+            <span class="absolute top-0 inset-x-0 h-0.5 bg-gradient-to-r from-transparent via-brand-accent to-transparent opacity-70"></span>
+            <div class="w-14 h-14 mb-3 bg-brand-dark border border-brand-accent/40 rounded-lg flex items-center justify-center shrink-0">
+              <svg class="w-7 h-7 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6v2m0 0a4 4 0 100 8m0-8a4 4 0 010 8m0 0v2m-6-10h2m8 0h2m-10 6h2m6 0h2M5 19l2-2m10 2l-2-2M5 5l2 2m10-2l-2 2"/></svg>
+            </div>
+            <h3 class="text-sm md:text-base font-serif mb-1 leading-snug text-white">Land Clearing</h3>
+            <p class="text-xs text-neutral-400">Open up your property and see its full potential</p>
+          </div>
+          <div class="plate fade-in hover-lift transition-transform duration-300 stagger-4 bg-gradient-to-b from-neutral-800 to-neutral-950 border border-white/10 rounded-lg p-5 md:p-6 flex flex-col items-center text-center overflow-hidden">
+            <span class="absolute top-0 inset-x-0 h-0.5 bg-gradient-to-r from-transparent via-brand-accent to-transparent opacity-70"></span>
+            <div class="w-14 h-14 mb-3 bg-brand-dark border border-brand-accent/40 rounded-lg flex items-center justify-center shrink-0">
+              <svg class="w-7 h-7 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 21v-2m0-14V3m0 18h18M21 3v2m0 14v2M21 21H3M12 3v4m0 4v4m0 4v3M5 21v-6h14v6M9 5h6"/></svg>
+            </div>
+            <h3 class="text-sm md:text-base font-serif mb-1 leading-snug text-white">Forestry Mulching</h3>
+            <p class="text-xs text-neutral-400">Reclaim overgrown areas and keep them easy to maintain</p>
+          </div>
+          <div class="plate fade-in hover-lift transition-transform duration-300 stagger-1 bg-gradient-to-b from-neutral-800 to-neutral-950 border border-white/10 rounded-lg p-5 md:p-6 flex flex-col items-center text-center overflow-hidden">
+            <span class="absolute top-0 inset-x-0 h-0.5 bg-gradient-to-r from-transparent via-brand-accent to-transparent opacity-70"></span>
+            <div class="w-14 h-14 mb-3 bg-brand-dark border border-brand-accent/40 rounded-lg flex items-center justify-center shrink-0">
+              <svg class="w-7 h-7 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 5v14m0-14l-3 3m3-3l3 3m-8 6h10a4 4 0 010 8H7a4 4 0 010-8z"/></svg>
+            </div>
+            <h3 class="text-sm md:text-base font-serif mb-1 leading-snug text-white">Septic Systems</h3>
+            <p class="text-xs text-neutral-400">Installation, repair &amp; replacement — big or small</p>
+          </div>
+          <div class="plate fade-in hover-lift transition-transform duration-300 stagger-2 bg-gradient-to-b from-neutral-800 to-neutral-950 border border-white/10 rounded-lg p-5 md:p-6 flex flex-col items-center text-center overflow-hidden">
+            <span class="absolute top-0 inset-x-0 h-0.5 bg-gradient-to-r from-transparent via-brand-accent to-transparent opacity-70"></span>
+            <div class="w-14 h-14 mb-3 bg-brand-dark border border-brand-accent/40 rounded-lg flex items-center justify-center shrink-0">
+              <svg class="w-7 h-7 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v3m0 12v3M3 12h3m12 0h3M6.34 6.34l2.12 2.12m7.08 7.08l2.12 2.12M6.34 17.66l2.12-2.12m7.08-7.08l2.12-2.12"/></svg>
+            </div>
+            <h3 class="text-sm md:text-base font-serif mb-1 leading-snug text-white">Waterlines</h3>
+            <p class="text-xs text-neutral-400">Water line installation &amp; repair done right</p>
+          </div>
+          <div class="plate fade-in hover-lift transition-transform duration-300 stagger-3 bg-gradient-to-b from-neutral-800 to-neutral-950 border border-white/10 rounded-lg p-5 md:p-6 flex flex-col items-center text-center overflow-hidden">
+            <span class="absolute top-0 inset-x-0 h-0.5 bg-gradient-to-r from-transparent via-brand-accent to-transparent opacity-70"></span>
+            <div class="w-14 h-14 mb-3 bg-brand-dark border border-brand-accent/40 rounded-lg flex items-center justify-center shrink-0">
+              <svg class="w-7 h-7 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 5v14a2 2 0 01-2 2H7a2 2 0 01-2-2V5a2 2 0 012-2h10a2 2 0 012 2zM8 12h8M8 8h8M8 16h5"/></svg>
+            </div>
+            <h3 class="text-sm md:text-base font-serif mb-1 leading-snug text-white">Concrete Finishing</h3>
+            <p class="text-xs text-neutral-400">Pads, driveways, and walkways — smoother, cleaner, refreshed</p>
+          </div>
+          <div class="plate fade-in hover-lift transition-transform duration-300 stagger-4 bg-gradient-to-b from-neutral-800 to-neutral-950 border border-white/10 rounded-lg p-5 md:p-6 flex flex-col items-center text-center overflow-hidden">
+            <span class="absolute top-0 inset-x-0 h-0.5 bg-gradient-to-r from-transparent via-brand-accent to-transparent opacity-70"></span>
+            <div class="w-14 h-14 mb-3 bg-brand-dark border border-brand-accent/40 rounded-lg flex items-center justify-center shrink-0">
+              <svg class="w-7 h-7 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 12h14M5 12l3-3m-3 3l3 3m9-3l-3-3m3 3l-3 3"/></svg>
+            </div>
+            <h3 class="text-sm md:text-base font-serif mb-1 leading-snug text-white">Tree Removal</h3>
+            <p class="text-xs text-neutral-400">Safe removal of problem trees and troublesome roots</p>
+          </div>
+          <div class="plate fade-in hover-lift transition-transform duration-300 stagger-1 bg-gradient-to-b from-neutral-800 to-neutral-950 border border-white/10 rounded-lg p-5 md:p-6 flex flex-col items-center text-center overflow-hidden">
+            <span class="absolute top-0 inset-x-0 h-0.5 bg-gradient-to-r from-transparent via-brand-accent to-transparent opacity-70"></span>
+            <div class="w-14 h-14 mb-3 bg-brand-dark border border-brand-accent/40 rounded-lg flex items-center justify-center shrink-0">
+              <svg class="w-7 h-7 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 21v-4m0-13V3M12 4a7 7 0 010 14M12 4a7 7 0 000 14M9 21h6"/></svg>
+            </div>
+            <h3 class="text-sm md:text-base font-serif mb-1 leading-snug text-white">Retaining Walls</h3>
+            <p class="text-xs text-neutral-400">Strong walls that hold grade and look great</p>
+          </div>
+          <div class="plate fade-in hover-lift transition-transform duration-300 stagger-2 bg-gradient-to-b from-neutral-800 to-neutral-950 border border-white/10 rounded-lg p-5 md:p-6 flex flex-col items-center text-center overflow-hidden">
+            <span class="absolute top-0 inset-x-0 h-0.5 bg-gradient-to-r from-transparent via-brand-accent to-transparent opacity-70"></span>
+            <div class="w-14 h-14 mb-3 bg-brand-dark border border-brand-accent/40 rounded-lg flex items-center justify-center shrink-0">
+              <svg class="w-7 h-7 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 19l5-5 4 4 7-7M4 19v-3m0 3h3M20 9l-2-2M20 9v3m0-3h-3"/></svg>
+            </div>
+            <h3 class="text-sm md:text-base font-serif mb-1 leading-snug text-white">Masonry</h3>
+            <p class="text-xs text-neutral-400">Brick, flagstone &amp; foundations</p>
+          </div>
+          <div class="plate fade-in hover-lift transition-transform duration-300 stagger-3 bg-gradient-to-b from-neutral-800 to-neutral-950 border border-white/10 rounded-lg p-5 md:p-6 flex flex-col items-center text-center overflow-hidden">
+            <span class="absolute top-0 inset-x-0 h-0.5 bg-gradient-to-r from-transparent via-brand-accent to-transparent opacity-70"></span>
+            <div class="w-14 h-14 mb-3 bg-brand-dark border border-brand-accent/40 rounded-lg flex items-center justify-center shrink-0">
+              <svg class="w-7 h-7 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            </div>
+            <h3 class="text-sm md:text-base font-serif mb-1 leading-snug text-white">Driveway Repair</h3>
+            <p class="text-xs text-neutral-400">Entrances, culverts &amp; smooth transitions</p>
+          </div>
+          <div class="plate fade-in hover-lift transition-transform duration-300 stagger-4 bg-gradient-to-b from-neutral-800 to-neutral-950 border border-white/10 rounded-lg p-5 md:p-6 flex flex-col items-center text-center overflow-hidden">
+            <span class="absolute top-0 inset-x-0 h-0.5 bg-gradient-to-r from-transparent via-brand-accent to-transparent opacity-70"></span>
+            <div class="w-14 h-14 mb-3 bg-brand-dark border border-brand-accent/40 rounded-lg flex items-center justify-center shrink-0">
+              <svg class="w-7 h-7 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v8m4-8v8M6 12v4m12-4v4M4 4h16M4 20h16M4 4v16M20 4v16"/></svg>
+            </div>
+            <h3 class="text-sm md:text-base font-serif mb-1 leading-snug text-white">Pond &amp; Erosion Control</h3>
+            <p class="text-xs text-neutral-400">Dam repairs, erosion control &amp; access ramps</p>
+          </div>
+        </div>
+        <div class="text-center mt-10 fade-in">
+          <a class="inline-block px-8 py-3 bg-brand-accent text-white text-sm font-bold uppercase tracking-wider hover:bg-white hover:text-brand-dark transition-all" href="tel:+17066805336">Call 706-680-5336</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery" class="py-16 md:py-20 bg-brand-beige">
+    <div class="container mx-auto px-6">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12 fade-in">
+          <h3 class="text-xs uppercase tracking-widest text-brand-accent font-bold">Gallery</h3>
+          <h2 class="text-3xl md:text-4xl font-serif mt-2">Our Work</h2>
+          <p class="text-gray-600 mt-3 max-w-xl mx-auto text-sm md:text-base">Turning customer visions into real-life results — one project at a time.</p>
+        </div>
+        <div class="grid grid-cols-2 gap-4 px-4" id="gallery-container">
+          <div class="group cursor-pointer fade-in scale-in stagger-1" onclick="openLightbox(0)">
+            <img alt="Dirt Pro Excavating project" class="w-full h-48 md:h-56 lg:h-72 object-cover rounded-lg group-hover:scale-105 transition-transform duration-500" src="images/548231281_780376094845862_6043429894800391921_n.webp" loading="lazy"/>
+          </div>
+          <div class="group cursor-pointer fade-in scale-in stagger-2" onclick="openLightbox(1)">
+            <img alt="Dirt Pro Excavating project" class="w-full h-48 md:h-56 lg:h-72 object-cover rounded-lg group-hover:scale-105 transition-transform duration-500" src="images/549286977_780376048179200_1634839883672880730_n.webp" loading="lazy"/>
+          </div>
+          <div class="group cursor-pointer fade-in scale-in stagger-3" onclick="openLightbox(2)">
+            <img alt="Dirt Pro Excavating project" class="w-full h-48 md:h-56 lg:h-72 object-cover rounded-lg group-hover:scale-105 transition-transform duration-500" src="images/578070026_824333510450120_6363568843690951854_n.webp" loading="lazy"/>
+          </div>
+          <div class="group cursor-pointer fade-in scale-in stagger-1" onclick="openLightbox(3)">
+            <img alt="Dirt Pro Excavating project" class="w-full h-48 md:h-56 lg:h-72 object-cover rounded-lg group-hover:scale-105 transition-transform duration-500" src="images/594141233_845332788350192_793571564970663023_n.webp" loading="lazy"/>
+          </div>
+          <div class="group cursor-pointer fade-in scale-in stagger-2" onclick="openLightbox(4)">
+            <img alt="Dirt Pro Excavating project" class="w-full h-48 md:h-56 lg:h-72 object-cover rounded-lg group-hover:scale-105 transition-transform duration-500" src="images/594403114_845332758350195_39791679397313199276_n.webp.jpg" loading="lazy"/>
+          </div>
+          <div class="group cursor-pointer fade-in scale-in stagger-3" onclick="openLightbox(5)">
+            <img alt="Dirt Pro Excavating project" class="w-full h-48 md:h-56 lg:h-72 object-cover rounded-lg group-hover:scale-105 transition-transform duration-500" src="images/594896380_845333065016831_657108390925438156_n.webp" loading="lazy"/>
+          </div>
+          <div class="group cursor-pointer fade-in scale-in stagger-1" onclick="openLightbox(6)">
+            <img alt="Dirt Pro Excavating project" class="w-full h-48 md:h-56 lg:h-72 object-cover rounded-lg group-hover:scale-105 transition-transform duration-500" src="images/594959298_845333101683494_7130101263432611602_n.webp" loading="lazy"/>
+          </div>
+          <div class="group cursor-pointer fade-in scale-in stagger-3" onclick="openLightbox(7)">
+            <img alt="Dirt Pro Excavating project" class="w-full h-48 md:h-56 lg:h-72 object-cover rounded-lg group-hover:scale-105 transition-transform duration-500" src="images/595107752_845333018350169_3152371787676697835_n.webp" loading="lazy"/>
+          </div>
+          <div class="group cursor-pointer fade-in scale-in stagger-1" onclick="openLightbox(8)">
+            <img alt="Dirt Pro Excavating project" class="w-full h-48 md:h-56 lg:h-72 object-cover rounded-lg group-hover:scale-105 transition-transform duration-500" src="images/598429091_849883947895076_8837086701887188007_n.webp" loading="lazy"/>
+          </div>
+          <div class="group cursor-pointer fade-in scale-in stagger-2" onclick="openLightbox(9)">
+            <img alt="Dirt Pro Excavating project" class="w-full h-48 md:h-56 lg:h-72 object-cover rounded-lg group-hover:scale-105 transition-transform duration-500" src="images/612067376_870411922508945_86695422420787418_n.webp" loading="lazy"/>
+          </div>
+          <div class="group cursor-pointer fade-in scale-in stagger-3" onclick="openLightbox(10)">
+            <img alt="Dirt Pro Excavating project" class="w-full h-48 md:h-56 lg:h-72 object-cover rounded-lg group-hover:scale-105 transition-transform duration-500" src="images/624708321_889204453963025_1014986587219309295_n.webp" loading="lazy"/>
+          </div>
+          <div class="group cursor-pointer fade-in scale-in stagger-1" onclick="openLightbox(11)">
+            <img alt="Dirt Pro Excavating project" class="w-full h-48 md:h-56 lg:h-72 object-cover rounded-lg group-hover:scale-105 transition-transform duration-500" src="images/628449453_893194010230736_1911300884467747607_n.webp" loading="lazy"/>
+          </div>
+          <div class="group cursor-pointer fade-in scale-in stagger-2" onclick="openLightbox(12)">
+            <img alt="Dirt Pro Excavating project" class="w-full h-48 md:h-56 lg:h-72 object-cover rounded-lg group-hover:scale-105 transition-transform duration-500" src="images/638378408_905105235706280_6301470836467964795_n.webp" loading="lazy"/>
+          </div>
+          <div class="group cursor-pointer fade-in scale-in stagger-3" onclick="openLightbox(13)">
+            <img alt="Dirt Pro Excavating project" class="w-full h-48 md:h-56 lg:h-72 object-cover rounded-lg group-hover:scale-105 transition-transform duration-500" src="images/645973991_914947621388708_5198586492000720744_n.webp" loading="lazy"/>
+          </div>
+          <div class="group cursor-pointer fade-in scale-in stagger-1" onclick="openLightbox(14)">
+            <img alt="Dirt Pro Excavating project" class="w-full h-48 md:h-56 lg:h-72 object-cover rounded-lg group-hover:scale-105 transition-transform duration-500" src="images/658148687_934020549481415_4337736441531350180_n.webp" loading="lazy"/>
+          </div>
+          <div class="group cursor-pointer fade-in scale-in stagger-2" onclick="openLightbox(15)">
+            <img alt="Dirt Pro Excavating project" class="w-full h-48 md:h-56 lg:h-72 object-cover rounded-lg group-hover:scale-105 transition-transform duration-500" src="images/670871487_947293081487495_7867429044114200528_n.webp" loading="lazy"/>
+          </div>
+          <div class="group cursor-pointer fade-in scale-in stagger-3" onclick="openLightbox(16)">
+            <img alt="Dirt Pro Excavating project" class="w-full h-48 md:h-56 lg:h-72 object-cover rounded-lg group-hover:scale-105 transition-transform duration-500" src="images/677757404_954612817422188_2377545408438945654_n.webp" loading="lazy"/>
+          </div>
+          <div class="group cursor-pointer fade-in scale-in stagger-1" onclick="openLightbox(17)">
+            <img alt="Dirt Pro Excavating project" class="w-full h-48 md:h-56 lg:h-72 object-cover rounded-lg group-hover:scale-105 transition-transform duration-500" src="images/678749688_955463720670431_2955685699844987286_n.webp" loading="lazy"/>
+          </div>
+          <div class="group cursor-pointer fade-in scale-in stagger-2" onclick="openLightbox(18)">
+            <img alt="Dirt Pro Excavating project" class="w-full h-48 md:h-56 lg:h-72 object-cover rounded-lg group-hover:scale-105 transition-transform duration-500" src="images/687774519_966098742940262_496983666298512228_n.webp" loading="lazy"/>
+          </div>
+          <div class="group cursor-pointer fade-in scale-in stagger-3" onclick="openLightbox(19)">
+            <img alt="Dirt Pro Excavating project" class="w-full h-48 md:h-56 lg:h-72 object-cover rounded-lg group-hover:scale-105 transition-transform duration-500" src="images/689283074_965483429668460_1920582048728178265_n.webp" loading="lazy"/>
+          </div>
+          <div class="group cursor-pointer fade-in scale-in stagger-1" onclick="openLightbox(20)">
+            <img alt="Dirt Pro Excavating project" class="w-full h-48 md:h-56 lg:h-72 object-cover rounded-lg group-hover:scale-105 transition-transform duration-500" src="images/700827828_974138262136310_3802898139508180811_n.webp" loading="lazy"/>
+          </div>
+          <div class="group cursor-pointer fade-in scale-in stagger-2" onclick="openLightbox(21)">
+            <img alt="Dirt Pro Excavating project" class="w-full h-48 md:h-56 lg:h-72 object-cover rounded-lg group-hover:scale-105 transition-transform duration-500" src="images/701785651_978638648352938_8143830319852619619_n.webp" loading="lazy"/>
+          </div>
+          <div class="group cursor-pointer fade-in scale-in stagger-3" onclick="openLightbox(22)">
+            <img alt="Dirt Pro Excavating project" class="w-full h-48 md:h-56 lg:h-72 object-cover rounded-lg group-hover:scale-105 transition-transform duration-500" src="images/715360327_991635627053240_3815447708661006763_n.webp" loading="lazy"/>
+          </div>
+          <div class="group cursor-pointer fade-in scale-in stagger-1" onclick="openLightbox(23)">
+            <img alt="Dirt Pro Excavating project" class="w-full h-48 md:h-56 lg:h-72 object-cover rounded-lg group-hover:scale-105 transition-transform duration-500" src="images/737569488_1015561787993957_3861763168093945216_n.webp" loading="lazy"/>
+          </div>
+          <div class="group cursor-pointer fade-in scale-in stagger-2" onclick="openLightbox(24)">
+            <img alt="Dirt Pro Excavating project" class="w-full h-48 md:h-56 lg:h-72 object-cover rounded-lg group-hover:scale-105 transition-transform duration-500" src="images/742045541_1020796060803863_544822068947766304_n.webp" loading="lazy"/>
+          </div>
+          <div class="group cursor-pointer fade-in scale-in stagger-3" onclick="openLightbox(25)">
+            <img alt="Dirt Pro Excavating project" class="w-full h-48 md:h-56 lg:h-72 object-cover rounded-lg group-hover:scale-105 transition-transform duration-500" src="images/748175992_1027245980158871_6743939048730707417_n.webp" loading="lazy"/>
+          </div>
+          <div class="group cursor-pointer fade-in scale-in stagger-1" onclick="openLightbox(26)">
+            <img alt="Dirt Pro Excavating project" class="w-full h-48 md:h-56 lg:h-72 object-cover rounded-lg group-hover:scale-105 transition-transform duration-500" src="images/748883104_1027246036825532_8840661718189452424_n.webp" loading="lazy"/>
+          </div>
+          <div class="group cursor-pointer fade-in scale-in stagger-2" onclick="openLightbox(27)">
+            <img alt="Dirt Pro Excavating project" class="w-full h-48 md:h-56 lg:h-72 object-cover rounded-lg group-hover:scale-105 transition-transform duration-500" src="images/762655579_1045874218296047_8522877581455030036_n.webp" loading="lazy"/>
+          </div>
+          <div class="group cursor-pointer fade-in scale-in stagger-3" onclick="openLightbox(28)">
+            <img alt="Dirt Pro Excavating project" class="w-full h-48 md:h-56 lg:h-72 object-cover rounded-lg group-hover:scale-105 transition-transform duration-500" src="images/765694627_1045874238296045_2116399796354705824_n.webp" loading="lazy"/>
+          </div>
+          <div class="group cursor-pointer fade-in scale-in stagger-1" onclick="openLightbox(29)">
+            <img alt="Dirt Pro Excavating project" class="w-full h-48 md:h-56 lg:h-72 object-cover rounded-lg group-hover:scale-105 transition-transform duration-500" src="images/765929591_1042737175276418_5448460839592803354_n.webp" loading="lazy"/>
+          </div>
+          <div class="group cursor-pointer fade-in scale-in stagger-2" onclick="openLightbox(30)">
+            <img alt="Dirt Pro Excavating project" class="w-full h-48 md:h-56 lg:h-72 object-cover rounded-lg group-hover:scale-105 transition-transform duration-500" src="images/766027777_1042737271943075_4796085922117969503_n.webp" loading="lazy"/>
+          </div>
+          <div class="group cursor-pointer fade-in scale-in stagger-3" onclick="openLightbox(31)">
+            <img alt="Dirt Pro Excavating project" class="w-full h-48 md:h-56 lg:h-72 object-cover rounded-lg group-hover:scale-105 transition-transform duration-500" src="images/677802716_956252680591535_4802486181966238716_n.webp" loading="lazy"/>
+          </div>
+          <div class="group cursor-pointer fade-in scale-in stagger-1" onclick="openLightbox(32)">
+            <img alt="Dirt Pro Excavating project" class="w-full h-48 md:h-56 lg:h-72 object-cover rounded-lg group-hover:scale-105 transition-transform duration-500" src="images/689439082_965483476335122_6583726807752022939_n.webp" loading="lazy"/>
+          </div>
+          <div class="group cursor-pointer fade-in scale-in stagger-2" onclick="openLightbox(33)">
+            <img alt="Dirt Pro Excavating project" class="w-full h-48 md:h-56 lg:h-72 object-cover rounded-lg group-hover:scale-105 transition-transform duration-500" src="images/dwaidbidawi.webp" loading="lazy"/>
+          </div>
+          <div class="group cursor-pointer fade-in scale-in stagger-3" onclick="openLightbox(34)">
+            <img alt="Dirt Pro Excavating project" class="w-full h-48 md:h-56 lg:h-72 object-cover rounded-lg group-hover:scale-105 transition-transform duration-500" src="images/dwanidbauadav121%C5%A1%2B.webp" loading="lazy"/>
+          </div>
+        </div>
+        <div class="text-center mt-10 fade-in">
+          <a href="https://www.facebook.com/profile.php?id=100086204355631" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3 bg-brand-dark text-white text-sm font-bold uppercase tracking-wider hover:bg-brand-accent hover:text-white transition-all duration-300">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            More on Facebook
+          </a>
+          <p class="text-xs text-gray-500 mt-2">And many more projects on our page</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="py-16 md:py-20">
+    <div class="container mx-auto px-6">
+      <div class="max-w-6xl mx-auto">
+        <div class="bg-brand-accent rounded-2xl p-8 md:p-12 relative overflow-hidden">
+          <div class="absolute right-0 top-0 opacity-10">
+            <svg height="300" viewbox="0 0 100 100" width="300" aria-hidden="true"><circle cx="50" cy="50" fill="white" r="50"></circle></svg>
+          </div>
+          <div class="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="text-white">
+              <h2 class="text-3xl md:text-4xl font-serif mb-4">Get a Free Estimate</h2>
+              <p class="text-white/90 mb-8">Call or text us anytime for a no-obligation quote. Whether it's a small repair or a full-site project, we'll find the best solution for your needs.</p>
+              <a class="inline-block px-8 py-3 bg-white text-black text-sm font-bold uppercase tracking-wider hover:bg-brand-dark hover:text-white transition-all duration-300" href="tel:+17066805336">Call 706-680-5336</a>
+            </div>
+            <div class="bg-white rounded-lg p-6">
+              <h3 class="text-lg font-serif mb-4">Why Choose Dirt Pro</h3>
+              <div class="space-y-3 text-sm text-gray-600">
+                <p><strong class="text-brand-dark">Quality work, dependable service.</strong> Committed to doing the job right, every step of the way.</p>
+                <p><strong class="text-brand-dark">Big or small, we do them all.</strong> From grading pads and septic systems to driveway and pond repairs.</p>
+                <p><strong class="text-brand-dark">Vision to reality.</strong> We help turn your project ideas into real-life results.</p>
+                <p><strong class="text-brand-dark">Local to Lake Hartwell.</strong> Proudly serving Fair Play, SC and the surrounding upstate SC &amp; Northeast Georgia area.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-brand-dark text-white py-8">
+    <div class="container mx-auto px-6">
+      <div class="max-w-6xl mx-auto">
+        <div class="flex flex-col items-center gap-6">
+          <a href="#"><img alt="Dirt Pro Excavating" class="h-[52px] w-auto" src="images/logo.webp"/></a>
+          <p class="text-center text-sm text-neutral-400">Demolition &amp; Excavation · 706-680-5336</p>
+          <div class="border-t border-white/10 w-full pt-6">
+            <p class="text-center text-xs text-gray-500">&copy; 2026 Dirt Pro Excavating. All rights reserved.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div id="menu-overlay" class="fixed inset-0 bg-black/50 z-40 hidden md:hidden" onclick="toggleMenu()"></div>
+
+  <script>
+    function toggleMenu() {
+      document.querySelector('.mobile-menu').classList.toggle('open');
+      document.getElementById('menu-overlay').classList.toggle('hidden');
+      document.body.style.overflow = document.body.style.overflow === 'hidden' ? '' : 'hidden';
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      // Before-After Slider Logic
+      const sliderInput = document.getElementById('slider-input');
+      const beforeImage = document.getElementById('before-image');
+      const sliderLine = document.getElementById('slider-line');
+      const beforeBadge = document.getElementById('before-badge');
+      const afterBadge = document.getElementById('after-badge');
+
+      if (sliderInput && beforeImage && sliderLine) {
+        sliderInput.addEventListener('input', function() {
+          const val = this.value;
+          beforeImage.style.clipPath = `polygon(0 0, ${val}% 0, ${val}% 100%, 0 100%)`;
+          sliderLine.style.left = `${val}%`;
+          beforeBadge.style.opacity = val < 15 ? val / 15 : 1;
+          afterBadge.style.opacity = val > 85 ? (100 - val) / 15 : 1;
+        });
+      }
+
+      const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+      }, observerOptions);
+      document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right, .scale-in').forEach(el => observer.observe(el));
+    });
+
+    const galleryImages = [
+      'images/548231281_780376094845862_6043429894800391921_n.webp',
+      'images/549286977_780376048179200_1634839883672880730_n.webp',
+      'images/578070026_824333510450120_6363568843690951854_n.webp',
+      'images/594141233_845332788350192_793571564970663023_n.webp',
+      'images/594403114_845332758350195_39791679397313199276_n.webp.jpg',
+      'images/594896380_845333065016831_657108390925438156_n.webp',
+      'images/594959298_845333101683494_7130101263432611602_n.webp',
+      'images/595107752_845333018350169_3152371787676697835_n.webp',
+      'images/598429091_849883947895076_8837086701887188007_n.webp',
+      'images/612067376_870411922508945_86695422420787418_n.webp',
+      'images/624708321_889204453963025_1014986587219309295_n.webp',
+      'images/628449453_893194010230736_1911300884467747607_n.webp',
+      'images/638378408_905105235706280_6301470836467964795_n.webp',
+      'images/645973991_914947621388708_5198586492000720744_n.webp',
+      'images/658148687_934020549481415_4337736441531350180_n.webp',
+      'images/670871487_947293081487495_7867429044114200528_n.webp',
+      'images/677757404_954612817422188_2377545408438945654_n.webp',
+      'images/678749688_955463720670431_2955685699844987286_n.webp',
+      'images/687774519_966098742940262_496983666298512228_n.webp',
+      'images/689283074_965483429668460_1920582048728178265_n.webp',
+      'images/700827828_974138262136310_3802898139508180811_n.webp',
+      'images/701785651_978638648352938_8143830319852619619_n.webp',
+      'images/715360327_991635627053240_3815447708661006763_n.webp',
+      'images/737569488_1015561787993957_3861763168093945216_n.webp',
+      'images/742045541_1020796060803863_544822068947766304_n.webp',
+      'images/748175992_1027245980158871_6743939048730707417_n.webp',
+      'images/748883104_1027246036825532_8840661718189452424_n.webp',
+      'images/762655579_1045874218296047_8522877581455030036_n.webp',
+      'images/765694627_1045874238296045_2116399796354705824_n.webp',
+      'images/765929591_1042737175276418_5448460839592803354_n.webp',
+      'images/766027777_1042737271943075_4796085922117969503_n.webp',
+      'images/677802716_956252680591535_4802486181966238716_n.webp',
+      'images/689439082_965483476335122_6583726807752022939_n.webp',
+      'images/dwaidbidawi.webp',
+      'images/dwanidbauadav121%C5%A1%2B.webp'
+    ];
+    let currentIndex = 0;
+
+    function openLightbox(index) {
+      currentIndex = index;
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      lightboxImg.src = galleryImages[index];
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function nextImage(e) {
+      e.stopPropagation();
+      currentIndex = (currentIndex + 1) % galleryImages.length;
+      document.getElementById('lightbox-img').src = galleryImages[currentIndex];
+    }
+
+    function prevImage(e) {
+      e.stopPropagation();
+      currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+      document.getElementById('lightbox-img').src = galleryImages[currentIndex];
+    }
+
+    document.addEventListener('keydown', function(e) {
+      const lightbox = document.getElementById('lightbox');
+      if (!lightbox.classList.contains('active')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowRight') nextImage(e);
+      if (e.key === 'ArrowLeft') prevImage(e);
+    });
+  </script>
+
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+    <span class="lightbox-nav lightbox-prev" onclick="prevImage(event)">&#8249;</span>
+    <img id="lightbox-img" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Enlarged image" onclick="event.stopPropagation()"/>
+    <span class="lightbox-nav lightbox-next" onclick="nextImage(event)">&#8250;</span>
+  </div>
+
+  <!-- Cookie Banner -->
+  <div id="cookie-banner" class="fixed bottom-0 left-0 right-0 bg-brand-dark text-white p-4 z-[60] hidden">
+    <div class="container mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+      <p class="text-sm text-center md:text-left">This website uses cookies to improve your experience.</p>
+      <div class="flex gap-3">
+        <button onclick="rejectCookies()" class="px-4 py-2 border border-white/30 text-sm hover:bg-white/10 transition-colors">Decline</button>
+        <button onclick="acceptCookies()" class="px-4 py-2 bg-brand-accent text-white text-sm font-bold hover:bg-brand-accent/80 transition-colors">Accept</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
